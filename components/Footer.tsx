@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaTwitter, FaTelegram, FaGithub } from "react-icons/fa";
+import { FaTwitter, FaTelegram, FaGithub, FaDiscord } from "react-icons/fa";
 
 const AlienFooter = () => {
   const currentYear = new Date().getFullYear();
@@ -91,7 +91,7 @@ const AlienFooter = () => {
             </h3>
             <div className="flex space-x-4">
               <a
-                href="https://twitter.com"
+                href="https://x.com/alien_krc20"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-teal-400 transition-colors"
@@ -99,7 +99,7 @@ const AlienFooter = () => {
                 <FaTwitter size={24} />
               </a>
               <a
-                href="https://telegram.org"
+                href="https://t.me/alien_krc20"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-teal-400 transition-colors"
@@ -107,12 +107,12 @@ const AlienFooter = () => {
                 <FaTelegram size={24} />
               </a>
               <a
-                href="https://github.com"
+                href="https://discord.gg/xDFM2utmcY"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-teal-400 transition-colors"
               >
-                <FaGithub size={24} />
+                <FaDiscord size={24} />
               </a>
             </div>
           </motion.div>

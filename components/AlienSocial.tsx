@@ -8,19 +8,19 @@ const socialLinks = [
   {
     name: "Twitter",
     icon: FaTwitter,
-    href: "https://x.com/CobbEsteba33165",
+    href: "https://x.com/alien_krc20",
     color: "bg-blue-400",
   },
   {
     name: "Telegram",
     icon: FaTelegramPlane,
-    href: "https://t.me/guactoken",
+    href: "https://t.me/alien_krc20",
     color: "bg-blue-500",
   },
   {
     name: "Discord",
     icon: FaDiscord,
-    href: "https://discord.gg/PvGVz388",
+    href: "https://discord.gg/xDFM2utmcY",
     color: "bg-blue-500",
   },
   {
