@@ -99,7 +99,7 @@ const AlienNavbar = () => {
           href="https://t.me/kspr_home_bot?start=WdRcvw"
           className="px-8 w-[70%] sm:w-auto py-4 bg-teal-600 rounded-lg text-white font-semibold hover:bg-teal-700 text-sm transition duration-200 ease-in-out hover:scale-105 flex flex-row items-center justify-center"
         >
-          Buy $GUAC
+          Buy $ALIEN
         </Link>
       </div>
 
