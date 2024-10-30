@@ -7,24 +7,25 @@ import { motion } from "framer-motion";
 const AlienTokenomics = () => {
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen w-full overflow-hidden"
       id="tokenomics"
     >
       {/* Background Image */}
-      <div className="absolute inset-0 w-full h-full">
-        <Image
-          src="/img03.jpeg"
-          alt="Alien technology background"
-          fill
-          className="object-cover"
-          priority
-        />
-        {/* Stronger gradient overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 opacity-40" />
-      </div>
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: "url('/img03.jpeg')", // Update this path to your image
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
+
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70 opacity-20" />
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-24 text-center">
+      <div className="relative z-10 container mx-auto mt-20 px-4 pt-60 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

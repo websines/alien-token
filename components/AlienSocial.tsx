@@ -34,8 +34,21 @@ const socialLinks = [
 
 const GuacSocial = () => {
   return (
-    <section className="py-12 relative bg-black">
-      <div className="absolute inset-0">
+    <section className="py-8 relative bg-black">
+      {/* Background Image */}
+      {/* <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: "url('/img04.jpeg')", // Update this path to your image
+          backgroundSize: "cover",
+          backgroundPosition: "top",
+          backgroundRepeat: "no-repeat",
+          opacity: 0.3, // Adjust this value to make the background more/less visible
+        }}
+      /> */}
+
+      {/* Stars animation overlay */}
+      <div className="absolute inset-0 z-10">
         {[...Array(50)].map((_, i) => (
           <motion.div
             key={i}
@@ -58,7 +71,8 @@ const GuacSocial = () => {
           />
         ))}
       </div>
-      <div className="container mx-auto px-4">
+
+      <div className="container mx-auto px-4 relative z-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

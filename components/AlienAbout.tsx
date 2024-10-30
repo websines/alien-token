@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const AlienAbout = () => {
   return (
-    <section className="py-16 bg-black relative" id="about">
+    <section className="py-4 bg-black relative" id="about">
       <div className="absolute inset-0">
         {[...Array(50)].map((_, i) => (
           <motion.div
