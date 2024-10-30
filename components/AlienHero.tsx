@@ -44,12 +44,12 @@ const AlienHero = () => {
         >
           <motion.div
             animate={{
-              rotate: [0, 360],
+              scale: [0.6, 1.1],
+              opacity: [0, 1],
             }}
             transition={{
-              duration: 50,
-              repeat: Infinity,
-              ease: "linear",
+              duration: 1.5,
+              ease: "easeOut",
             }}
             className="relative w-[240px] h-[240px] md:w-[300px] md:h-[300px]"
           >

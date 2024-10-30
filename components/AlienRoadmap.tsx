@@ -84,6 +84,7 @@ const AlienRoadmap = () => {
     <section
       ref={containerRef}
       className="relative py-16 bg-black overflow-hidden mx-auto w-full"
+      id="roadmap"
     >
       <div className="absolute inset-0">
         {[...Array(50)].map((_, i) => (
