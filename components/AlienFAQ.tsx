@@ -39,8 +39,8 @@ const faqItems = [
 
 const AlienFAQ = () => {
   return (
-    <section className="py-16 bg-black relative" id="faq">
-      <div className="absolute inset-0">
+    <section className="py-16 bg-black" id="faq">
+      {/* <div className="absolute inset-0">
         {[...Array(50)].map((_, i) => (
           <motion.div
             key={i}
@@ -62,7 +62,7 @@ const AlienFAQ = () => {
             }}
           />
         ))}
-      </div>
+      </div> */}
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-4xl md:text-5xl font-bold text-center mb-12 text-teal-400"
