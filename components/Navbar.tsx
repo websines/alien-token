@@ -39,11 +39,11 @@ const AlienNavbar = () => {
   };
 
   return (
-    <nav className="w-full top-0 p-4 bg-transparent z-50">
-      <div className="flex flex-row justify-between items-center">
+    <nav className="w-full fixed top-0 p-4 bg-gradient-to-b from-black/80 to-transparent backdrop-blur-sm z-50">
+      <div className="flex flex-row justify-between items-center max-w-7xl mx-auto">
         <div className="flex flex-row justify-center items-center space-x-2 ml-4 z-50">
           <motion.div
-            className="rounded-full p-4 bg-zinc-100 cursor-pointer relative hover:scale-105 hover:bg-zinc-200 z-50"
+            className="rounded-full p-4 bg-purple-900/50 cursor-pointer relative hover:scale-105 hover:bg-purple-800/50 z-50 border border-purple-500/30"
             onClick={handleOverlayToggle}
             initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
@@ -55,7 +55,7 @@ const AlienNavbar = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="w-6 h-6 text-zinc-800"
+              className="w-6 h-6 text-purple-200"
             >
               {isOverlayOpen ? (
                 <path
@@ -74,7 +74,7 @@ const AlienNavbar = () => {
           </motion.div>
           {!isOverlayOpen && (
             <Link href="/">
-              <span className="text-2xl font-bold text-teal-400">$ALIEN</span>
+              <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-fuchsia-500">$ALIEN</span>
             </Link>
           )}
         </div>
@@ -87,8 +87,8 @@ const AlienNavbar = () => {
                 <NavItem href="#faq">Why $ALIEN</NavItem>
                 <NavItem href="#tokenomics">Tokenomics</NavItem>
                 <NavItem href="#roadmap">Roadmap</NavItem>
-                <NavItem href="https://t.me/kspr_home_bot?start=WdRcvw">
-                  Buy on KSPR Bot
+                <NavItem href="https://raydium.io/swap">
+                  Trade on Raydium
                 </NavItem>
               </NavigationMenuList>
             </NavigationMenu>
@@ -96,8 +96,8 @@ const AlienNavbar = () => {
         </div>
         <Link
           target="_blank"
-          href="https://t.me/kspr_home_bot?start=WdRcvw"
-          className="px-8 w-[70%] sm:w-auto py-4 bg-teal-600 rounded-lg text-white font-semibold hover:bg-teal-700 text-sm transition duration-200 ease-in-out hover:scale-105 flex flex-row items-center justify-center"
+          href="https://raydium.io/swap"
+          className="px-8 w-[70%] sm:w-auto py-4 bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-700 hover:to-fuchsia-700 rounded-xl text-white font-semibold transition duration-200 ease-in-out hover:scale-105 flex flex-row items-center justify-center shadow-lg shadow-purple-500/20"
         >
           Buy $ALIEN
         </Link>
@@ -153,11 +153,11 @@ const AlienNavbar = () => {
                     Roadmap
                   </OverlayNavItem>
                   <OverlayNavItem
-                    href="https://t.me/kspr_home_bot?start=WdRcvw"
+                    href="https://raydium.io/swap"
                     number="06"
                     onClick={() => setOverlayOpen(false)}
                   >
-                    Buy on KSPR Bot
+                    Trade on Raydium
                   </OverlayNavItem>
                 </ul>
               </div>

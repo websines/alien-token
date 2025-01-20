@@ -1,71 +1,114 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 const AlienTokenomics = () => {
+  const tokenomicsData = [
+    {
+      title: "Public Sale",
+      percentage: "40%",
+      description: "Available for public trading on Raydium",
+      color: "from-purple-400 to-fuchsia-500",
+    },
+    {
+      title: "Liquidity Pool",
+      percentage: "30%",
+      description: "Locked for 1 year to ensure trading stability",
+      color: "from-fuchsia-500 to-purple-600",
+    },
+    {
+      title: "Marketing & Development",
+      percentage: "20%",
+      description: "For continued growth and development",
+      color: "from-purple-600 to-fuchsia-700",
+    },
+    {
+      title: "Team",
+      percentage: "10%",
+      description: "Locked for 6 months, vested linearly",
+      color: "from-fuchsia-700 to-purple-800",
+    },
+  ];
+
   return (
-    <section
-      className="relative min-h-screen w-full overflow-hidden"
-      id="tokenomics"
-    >
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: "url('/img03.jpeg')", // Update this path to your image
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      />
-
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70 opacity-20" />
-
-      {/* Content */}
-      <div className="relative z-10 container mx-auto mt-20 px-4 pt-60 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto backdrop-blur-sm bg-black/30 p-8 rounded-2xl border border-teal-500/30"
-        >
-          <h2 className="text-5xl md:text-7xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-blue-500 drop-shadow-lg">
-            Tokenomics
-          </h2>
-          <div className="space-y-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-2xl md:text-4xl font-bold text-white drop-shadow-lg"
-            >
-              1,000,000,000 $ALIEN
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-xl md:text-2xl text-teal-200 drop-shadow-md"
-            >
-              Fully minted with fair launch
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-lg md:text-xl text-blue-300 font-semibold drop-shadow-md"
-            >
-              No pre-allocation • Fair distribution
-            </motion.div>
-          </div>
-        </motion.div>
+    <section id="tokenomics" className="py-20 bg-black relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-transparent to-fuchsia-900/30" />
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-gradient-to-r from-purple-400 to-fuchsia-500"
+            style={{
+              width: Math.random() * 4 + 2 + "px",
+              height: Math.random() * 4 + 2 + "px",
+              top: Math.random() * 100 + "%",
+              left: Math.random() * 100 + "%",
+            }}
+            animate={{
+              y: [0, -30, 0],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: Math.random() * 3 + 2,
+              repeat: Infinity,
+              repeatType: "loop",
+            }}
+          />
+        ))}
       </div>
 
-      {/* Decorative elements */}
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-neutral-900 to-transparent" />
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-fuchsia-500">
+            Tokenomics
+          </h2>
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            Total Supply: 1,000,000,000,000 $ALIEN
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {tokenomicsData.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-purple-900/20 to-fuchsia-900/20 p-6 rounded-2xl backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300"
+            >
+              <div className="text-center">
+                <h3 className={`text-4xl font-bold mb-2 bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}>
+                  {item.percentage}
+                </h3>
+                <h4 className="text-xl font-semibold text-white mb-2">{item.title}</h4>
+                <p className="text-gray-400">{item.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center"
+        >
+          <p className="text-gray-300 text-lg">
+            Smart contract will be audited and liquidity will be locked for 1 year to ensure
+            maximum security for our community.
+          </p>
+        </motion.div>
+      </div>
     </section>
   );
 };

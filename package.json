@@ -1,7 +1,8 @@
 {
-  "name": "alien-coin",
+  "name": "alien-solana",
   "version": "0.1.0",
   "private": true,
+  "description": "The fastest alien in the galaxy - A Solana Memecoin",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

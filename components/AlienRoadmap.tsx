@@ -1,105 +1,78 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Meteors } from "./ui/meteors";
-
-const roadmapData = [
-  {
-    phase: "Phase 1: Launch Token",
-    steps: [
-      "Step 1: Deploy ALIEN token on the Kaspa KRC20 platform.",
-      "Step 2: 🎉 Yay! Token exists now!",
-    ],
-  },
-  {
-    phase: "Phase 2: Spread the Word",
-    steps: [
-      "Step 1: Tell your friends, family, and that one conspiracy theorist neighbor.",
-      "Step 2: 📢 Shout into the void (a.k.a. the internet).",
-    ],
-  },
-  {
-    phase: "Phase 3: Await the Mothership",
-    steps: [
-      "Step 1: Keep an eye on the night sky.",
-      "Step 2: 🔭 Invest in a telescope (optional but fashionable).",
-    ],
-  },
-  {
-    phase: "Phase 4: First Contact",
-    steps: [
-      "Step 1: Aliens finally arrive because they heard about our cool token.",
-      'Step 2: 👽 "Take us to your token leader!"',
-    ],
-  },
-  {
-    phase: "Phase 5: To the Moon!",
-    steps: [
-      "Step 1: ALIEN token skyrockets in value.",
-      "Step 2: 🚀 Literally to the moon. No, really, we're going there.",
-    ],
-  },
-  {
-    phase: "Phase 6: Profit",
-    steps: [
-      "Step 1: Enjoy intergalactic wealth.",
-      "Step 2: 💰 Buy a space mansion with a view of Saturn's rings.",
-    ],
-  },
-];
+import React from "react";
+import { motion } from "framer-motion";
 
 const AlienRoadmap = () => {
-  const [activePhase, setActivePhase] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const beamHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (containerRef.current) {
-        const phases = containerRef.current.querySelectorAll(".roadmap-phase");
-        phases.forEach((phase, index) => {
-          const rect = phase.getBoundingClientRect();
-          if (
-            rect.top <= window.innerHeight / 2 &&
-            rect.bottom >= window.innerHeight / 2
-          ) {
-            setActivePhase(index);
-          }
-        });
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const phases = [
+    {
+      phase: "Phase 1",
+      title: "Launch Preparation",
+      items: [
+        "Smart Contract Development",
+        "Contract Audit",
+        "Website Launch",
+        "Social Media Setup",
+        "Community Building",
+      ],
+      color: "from-purple-400 to-fuchsia-500",
+    },
+    {
+      phase: "Phase 2",
+      title: "Token Launch",
+      items: [
+        "Raydium Pool Creation",
+        "Initial Marketing Push",
+        "CoinGecko Listing",
+        "Community Events",
+        "NFT Collection Teaser",
+      ],
+      color: "from-fuchsia-500 to-purple-600",
+    },
+    {
+      phase: "Phase 3",
+      title: "Expansion",
+      items: [
+        "NFT Collection Launch",
+        "CEX Listings",
+        "Staking Platform",
+        "Partnerships",
+        "Ecosystem Growth",
+      ],
+      color: "from-purple-600 to-fuchsia-700",
+    },
+    {
+      phase: "Phase 4",
+      title: "Utility Development",
+      items: [
+        "Alien DAO Launch",
+        "Community Governance",
+        "DeFi Integration",
+        "Game Development",
+        "Cross-Chain Expansion",
+      ],
+      color: "from-fuchsia-700 to-purple-800",
+    },
+  ];
 
   return (
-    <section
-      ref={containerRef}
-      className="relative py-16 bg-black overflow-hidden mx-auto w-full"
-      id="roadmap"
-    >
-      <div className="absolute inset-0">
-        {[...Array(50)].map((_, i) => (
+    <section id="roadmap" className="py-20 bg-black relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-transparent to-fuchsia-900/30" />
+        {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-white"
+            className="absolute rounded-full bg-gradient-to-r from-purple-400 to-fuchsia-500"
             style={{
-              width: Math.random() * 3 + 1 + "px",
-              height: Math.random() * 3 + 1 + "px",
+              width: Math.random() * 4 + 2 + "px",
+              height: Math.random() * 4 + 2 + "px",
               top: Math.random() * 100 + "%",
               left: Math.random() * 100 + "%",
             }}
             animate={{
+              y: [0, -30, 0],
               opacity: [0, 1, 0],
-              scale: [0, 1, 0],
             }}
             transition={{
               duration: Math.random() * 3 + 2,
@@ -109,76 +82,57 @@ const AlienRoadmap = () => {
           />
         ))}
       </div>
-      <div className="container mx-auto px-4 flex flex-col items-center">
-        <h2 className="text-4xl md:text-5xl font-semibold text-center mb-12 text-teal-400">
-          ALIEN Token Meme Roadmap
-        </h2>
-        <div className="relative mx-auto justify-center">
-          {/* Light beam tracing element */}
-          <motion.div
-            className="absolute left-0 md:left-12 w-2 md:w-4"
-            style={{
-              height: beamHeight,
-              top: 0,
-              background:
-                "linear-gradient(to bottom, rgba(45, 212, 191, 0.1), rgba(45, 212, 191, 0.5))",
-              boxShadow: "0 0 20px 5px rgba(45, 212, 191, 0.3)",
-              borderRadius: "4px",
-            }}
-          />
-          {roadmapData.map((phase, index) => (
+
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-fuchsia-500">
+            Roadmap
+          </h2>
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            Our journey to conquer the Solana ecosystem and beyond
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {phases.map((phase, index) => (
             <motion.div
               key={index}
-              className="roadmap-phase mb-24 relative"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-purple-900/20 to-fuchsia-900/20 p-8 rounded-2xl backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300"
             >
-              <motion.div
-                style={{
-                  y: useTransform(scrollYProgress, [0, 1], [0, index * -100]),
-                }}
-              >
-                <Card
-                  className={`max-w-2xl mx-auto md:ml-24 bg-neutral-800 border-teal-400 transition-all duration-300 ${
-                    activePhase === index
-                      ? "scale-105 border-2"
-                      : "scale-100 border"
-                  }`}
-                >
-                  <CardHeader>
-                    <CardTitle className="text-2xl font-bold text-teal-400">
-                      {phase.phase}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="list-disc pl-5 space-y-2">
-                      {phase.steps.map((step, stepIndex) => (
-                        <li key={stepIndex} className="text-gray-300">
-                          {step}
-                        </li>
-                      ))}
-                    </ul>
-                    <Meteors number={5} />
-                  </CardContent>
-                </Card>
-              </motion.div>
-              {/* Alien emoji with enhanced parallax effect */}
-              <motion.div
-                className="absolute top-1/2 left-4 md:left-8 text-4xl"
-                style={{
-                  y: useTransform(scrollYProgress, [0, 1], [0, index * -150]),
-                }}
-              >
-                👽
-              </motion.div>
+              <div className="text-center mb-6">
+                <h3 className={`text-3xl font-bold mb-2 bg-gradient-to-r ${phase.color} bg-clip-text text-transparent`}>
+                  {phase.phase}
+                </h3>
+                <h4 className="text-xl font-semibold text-white">{phase.title}</h4>
+              </div>
+              <ul className="space-y-3">
+                {phase.items.map((item, itemIndex) => (
+                  <motion.li
+                    key={itemIndex}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 + itemIndex * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex items-center space-x-2 text-gray-300"
+                  >
+                    <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${phase.color}`} />
+                    <span>{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>
-        {/* <p className="text-center text-gray-400 mt-8 italic">
-          Note: This roadmap is 100% scientifically accurate if you believe hard
-          enough.
-        </p> */}
       </div>
     </section>
   );
