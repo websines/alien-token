@@ -87,8 +87,8 @@ const AlienNavbar = () => {
                 <NavItem href="#faq">Why $ALIEN</NavItem>
                 <NavItem href="#tokenomics">Tokenomics</NavItem>
                 <NavItem href="#roadmap">Roadmap</NavItem>
-                <NavItem href="https://raydium.io/swap">
-                  Trade on Raydium
+                <NavItem href="https://pump.fun/coin/FBPp8nCMZRF214h5oXT6yS8xsKz1Qk7CH2g5piXbpump">
+                  Trade on Pump.fun
                 </NavItem>
               </NavigationMenuList>
             </NavigationMenu>
@@ -96,7 +96,7 @@ const AlienNavbar = () => {
         </div>
         <Link
           target="_blank"
-          href="https://raydium.io/swap"
+          href="https://pump.fun/coin/FBPp8nCMZRF214h5oXT6yS8xsKz1Qk7CH2g5piXbpump"
           className="px-8 w-[70%] sm:w-auto py-4 bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-700 hover:to-fuchsia-700 rounded-xl text-white font-semibold transition duration-200 ease-in-out hover:scale-105 flex flex-row items-center justify-center shadow-lg shadow-purple-500/20"
         >
           Buy $ALIEN

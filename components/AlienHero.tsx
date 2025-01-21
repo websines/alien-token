@@ -185,7 +185,7 @@ const AlienHero = () => {
               size="lg"
               className="bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-700 hover:to-fuchsia-700 text-white text-lg px-8 py-6 rounded-xl transform transition-all hover:scale-105"
             >
-              <Link href="#buy">Buy on Raydium</Link>
+              <Link href="https://pump.fun/coin/FBPp8nCMZRF214h5oXT6yS8xsKz1Qk7CH2g5piXbpump">Buy on Pump.fun</Link>
             </Button>
             <Button
               asChild
